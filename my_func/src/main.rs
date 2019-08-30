@@ -29,7 +29,23 @@ fn main() {
     // if 是个表达式
     let number = if condition { 55 } else { 66 };
 
-    println!("number -> {}", number)
+    println!("number -> {}", number);
+
+    let mut counter = 0;
+    let result = loop {
+        counter += 1;
+        if counter == 10 {
+            break counter * 2;
+        }
+    };
+    println!("result->{}", result);
+    assert_eq!(result, 20);
+
+    //for 循环
+    let a = [10, 20, 30, 40, 50];
+    for element in a.iter() {
+        println!("the value->{}", element);
+    }
 }
 
 fn another_function() {
