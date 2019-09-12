@@ -1,1 +1,1 @@
-# rust练习
+# learn rust
