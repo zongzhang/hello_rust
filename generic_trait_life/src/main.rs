@@ -1,3 +1,6 @@
+use std::iter::Sum;
+use std::fmt::{Display, Debug};
+
 //fn largest<T>(list: &[T]) -> T {}
 //pub 公有
 pub trait Summary {
@@ -29,6 +32,43 @@ impl Summary for Tweet {
         format!("{} : {}", self.username, self.content)
     }
 }
+
+//pub fn notify(item: impl Summary) {
+//    println!("breaking new! {}", item.summarize())
+//}
+
+//语法糖
+//pub fn notify<T: Summary>(item: T) {
+//    println!("breaking new! {}", item.summarize())
+//}
+
+//指定多个
+pub fn notify(item: impl Summary + Display) {
+    println!("breaking new! {}", item.summarize())
+}
+
+//fn some_function<T: Display + Clone, U: Clone + Debug>(t: T, u: U) -> i32 {
+//
+//}
+
+//使用 where 改进
+//fn some_function<T, U>(t: T, u: U) -> i32
+//    where T: Display + Clone,
+//          U: Clone + Debug
+//{
+//
+//}
+
+//返回 trait，只适合返回单一类型
+fn returns_summarizable() -> impl Summary {
+    Tweet {
+        username: String::from("horse_ebooks"),
+        content: String::from("of course, as you probably already know, people"),
+        reply: false,
+        retweet: false,
+    }
+}
+
 
 #[allow(dead_code)]
 fn largest_i32(list: &[i32]) -> i32 {
