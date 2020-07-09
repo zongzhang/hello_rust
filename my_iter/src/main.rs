@@ -1,4 +1,10 @@
 fn main() {
+    for number in (1..4).rev() {
+        println!("{}!", number);
+    }
+    println!("LIFT OFF");
+
+
     let v1 = vec![1, 2, 3];
 
     //迭代器是惰性的 v1_iter是不可变的 iter_mut() 返回可变
