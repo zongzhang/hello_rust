@@ -1,3 +1,4 @@
+mod slice;
 mod borrowing;
 
 //所有权的存在就是为了管理堆数据
