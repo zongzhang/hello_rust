@@ -1,16 +1,31 @@
 // cargo test
 #[cfg(test)] //cfg 属性代表 configuration
 mod tests {
-    #[test] //表明了测试函数
-    fn it_works() {
+    // #[test] //表明了测试函数
+    // fn it_works() {
+    //     assert_eq!(2 + 2, 4);
+    // }
+    #[test]
+    fn exploration() {
         assert_eq!(2 + 2, 4);
+    }
+
+    #[test]
+    fn another() {
+        panic!("Make this test fail");
+    }
+
+    use super::*;
+
+    #[test]
+    fn greeting_contains_name() {
+        let result = greeting("Carol");
+        assert!(result.contains("Carol"));
     }
 }
 
-pub fn add_two(a: i32) -> i32 {
-    internal_adder(a, 2)
+pub fn greeting(name: &str) -> String {
+    format!("Hello {}!", name)
 }
 
-fn internal_adder(a: i32, b: i32) -> i32 {
-    a + b
-}
+// 使用 should_panic 检查 panic
